@@ -1,0 +1,265 @@
+:root{
+  --soft-cyan-full-slider-bar: hsl(174, 77%, 80%);
+  --strong-cyan-slider-backround: hsl(174, 86%, 45%);
+  --light-grayish-red-discount-background: hsl(14, 92%, 95%);
+  --light-red-discount-text: hsl(15, 100%, 70%);
+  --pale-blue-cta-text: hsl(226, 100%, 87%);
+  --white-pricing-component-background: hsl(0, 0%, 100%);
+  --very-pale-blue-main-background: hsl(230, 100%, 99%);
+  --light-grayish-blue-empty-slider-bar: hsl(224, 65%, 95%);
+  --light-grayish-blue-toggle-background: hsl(223, 50%, 87%);
+  --grayish-blue-text: hsl(225, 20%, 60%);
+  --dark-desaturated-blue-text-cta-background: hsl(227, 35%, 25%);
+}
+html{
+  font-family: 'Manrope', sans-serif;
+}
+body{
+  background-color: var(--very-pale-blue-main-background);
+}
+body > img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  height: 20rem;
+}
+@media screen and (min-width: 48rem){
+  body{
+    height: 100vh;
+  }
+  body > img{
+    height: 39rem;
+  }
+}
+@media screen and (min-width: 80rem){
+  body > img{
+    height: 20rem;
+  }
+}
+@media screen and (min-width: 90rem){
+  body > img{
+    height: 28rem;
+  }
+}
+
+/* -------------------- COMPONENTES -------------------- */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 43px;
+  height: 23px;
+}
+.switch::before,
+.switch::after{
+  position: absolute;
+  top: 0.1rem;
+  font-size: .8rem;
+  opacity: .5;
+}
+.switch::before{
+  content: 'Monthly Billing';
+  left: -6rem;
+}
+.switch::after{
+  content: 'Yearly Billing';
+  right: -5rem;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-grayish-blue-toggle-background);
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--strong-cyan-slider-backround);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--soft-cyan-full-slider-bar);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--dark-desaturated-blue-text-cta-background);
+  color: white;
+  font-size: .8rem;
+  padding: .5rem 2rem;
+  border-radius: 50px;
+}
+.btn:hover{
+  opacity: .7;
+}
+#range{
+  -webkit-appearance: none;
+  height: .5rem;
+  border-radius: 5px;  
+  background: var(--light-grayish-blue-empty-slider-bar);
+  outline: none;
+  background-image: linear-gradient(to right, var(--soft-cyan-full-slider-bar) 0 calc(var(--value)*1%), var(--light-grayish-blue-empty-slider-bar) calc(var(--value)*1%) 100%);
+}
+#range::-webkit-slider-thumb {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0px 9px 15px -1px var(--strong-cyan-slider-backround);
+  background-image: url(../images/icon-slider.svg);
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--strong-cyan-slider-backround);
+  cursor: pointer;
+}
+
+/* -------------------- ESTILOS -------------------- */
+.header-page{
+  background-image: url(../images/pattern-circles.svg);
+  background-size: 9rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media screen and (min-width: 64rem){
+  .header-page{
+    height: 10rem;
+  }
+}
+@media screen and (min-width: 80rem){
+  .header-page{
+    margin-top: 0;
+    background-size: 7rem;
+  }
+}
+@media screen and (min-width: 90rem){
+  .header-page{
+    margin-top: 1rem;
+    display: grid;
+    place-content: center;
+  }
+}
+
+/* -------------------- MAIN CONTENT -------------------- */
+.component-item{
+  border-radius: 10px;
+  box-shadow: 0px 9px 15px -1px rgba(128, 128, 128, 0.274);
+}
+.component-item > h5{
+  letter-spacing: 2px;
+}
+.toggle-price{
+  position: relative;
+}
+.toggle-price::after{
+  content:'-25%';
+  position: absolute;
+  top: .1rem;
+  right: .3rem;
+  background-color: var(--light-grayish-red-discount-background);
+  border-radius: 10px;
+  font-size: .6rem;
+  font-weight: bold;
+  padding: .2rem .3rem;
+  color:var(--light-red-discount-text)
+}
+.spans > span{
+  font-size: .8rem;
+  padding: .3rem;
+  opacity: .6;
+  position: relative;
+}
+.spans > span::before{
+  content:'';
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: .5rem;
+  left: -1rem;
+}
+@media screen and (min-width: 48rem){
+  main{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;
+  }
+  main > .container{
+    width: 50%;
+  }
+  .component-price-body{
+    align-items: center;
+    justify-content: space-between;
+  }
+  .btn{
+    margin-top: 0;
+  }
+  .toggle-price::after{
+    right: 2.5rem;
+  }
+}
+@media screen and (min-width: 80rem){
+  main > .container{
+    width: 40%;
+  }
+  .toggle-price::after{
+    right: 7.5rem;
+  }
+}
+@media screen and (min-width: 90rem){
+  .toggle-price::after{
+    right: 8.5rem;
+  }
+}
+@media screen and (min-width: 120rem){
+  main > .container{
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 90rem){
+  .attribution{
+    margin-top: 7rem;
+  }
+}
